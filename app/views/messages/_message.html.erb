@@ -1,11 +1,12 @@
 <div id="<%= dom_id message %>">
+  <div class= "bord">
   <p>
     <strong>заметка:</strong>
     <%= message.body %>
   </p>
   <p>
-  <%= link_to "Перейти к заметке", message %>
   <%= button_to "Редактировать заметку", edit_message_path(message), method: :post %> 
   <%= button_to "Удалить эту заметку", message_path(message), method: :delete %>
   </p>
+  </div>
 </div>
