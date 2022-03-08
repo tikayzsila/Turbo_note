@@ -39,7 +39,8 @@ class MessagesController < ApplicationController
                                 locals: {message: Message.new}),
             turbo_stream.prepend('messages', 
                                 partial: "messages/message", 
-                                locals: {message: @message})  
+                                locals: {message: @message}),
+            turbo_stream.update('message_counter', html: Message.count) 
           ]
         end
         format.html { redirect_to message_url(@message), notice: "Заметка успешно создана." }
@@ -86,7 +87,13 @@ class MessagesController < ApplicationController
     @message.destroy
 
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.remove("message_#{@message.id}") }
+      format.turbo_stream do 
+        render turbo_stream: [
+          turbo_stream.remove("message_#{@message.id}"),
+          turbo_stream.update('message_counter', html: Message.count)
+        ]
+
+      end
       format.html { redirect_to messages_url, notice: "Заметка успешно удалена." }
       format.json { head :no_content }
     end
