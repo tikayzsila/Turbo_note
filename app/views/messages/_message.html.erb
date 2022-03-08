@@ -3,5 +3,8 @@
     <strong>заметка:</strong>
     <%= message.body %>
   </p>
-
+  <p>
+  <%= link_to "Перейти к заметке", message %>
+  <%= button_to "Удалить эту заметку", message_path(message), method: :delete %>
+  </p>
 </div>

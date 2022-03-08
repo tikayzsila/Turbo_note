@@ -8,9 +8,8 @@
 
 <div id="messages">
   <% @messages.each do |message| %>
-    <%= render message %>
     <p>
-      <%= link_to "Перейти к заметке", message %>
+    <%= render message %>
     </p>
   <% end %>
 </div>
