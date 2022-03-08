@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: turbonote_production
-  username: turbonote
+  username: postgres
   password: <%= ENV["TURBONOTE_DATABASE_PASSWORD"] %>
