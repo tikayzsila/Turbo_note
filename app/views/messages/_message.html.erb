@@ -5,6 +5,7 @@
   </p>
   <p>
   <%= link_to "Перейти к заметке", message %>
+  <%= button_to "Редактировать заметку", edit_message_path(message), method: :post %> 
   <%= button_to "Удалить эту заметку", message_path(message), method: :delete %>
   </p>
 </div>
