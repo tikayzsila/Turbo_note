@@ -3,8 +3,8 @@
 <%= render @message %>
 
 <div>
-  <%= link_to "Edit this message", edit_message_path(@message) %> |
-  <%= link_to "Back to messages", messages_path %>
+  <%= link_to "Редактировать заметку", edit_message_path(@message) %> |
+  <%= link_to "Вернуться к заметкам", messages_path %>
 
-  <%= button_to "Destroy this message", @message, method: :delete %>
+  <%= button_to "Удалить эту заметку", @message, method: :delete %>
 </div>
